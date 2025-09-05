@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.5.4</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.voice</groupId>
+	<artifactId>AiVoice</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>AiVoice</name>
+	<description>Ai Voice</description>
+	<properties>
+		<java.version>17</java.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.ai</groupId>
+				<artifactId>spring-ai-bom</artifactId>
+				<version>1.0.0-M2</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+		<dependencies>
+			<!--	添加SpringWeb依赖	 -->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-web</artifactId>
+			</dependency>
+			<!-- 添加lombok依赖 -->
+			<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<version>1.18.32</version>
+				<scope>provided</scope>
+			</dependency>
+			<!-- 添加 MySQL JDBC 驱动依赖 -->
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>8.0.28</version>
+			</dependency>
+			<!--	添加Mybatis plus依赖	-->
+			<dependency>
+				<groupId>com.baomidou</groupId>
+				<artifactId>mybatis-plus-spring-boot3-starter</artifactId>
+				<version>3.5.12</version>
+			</dependency>
+			<!--	添加 jwt 相关依赖		-->
+			<dependency>
+				<groupId>io.jsonwebtoken</groupId>
+				<artifactId>jjwt</artifactId>
+				<version>0.9.1</version>
+			</dependency>
+			<!--	jjwt的依赖，去除则会报错	-->
+			<dependency>
+				<groupId>javax.xml.bind</groupId>
+				<artifactId>jaxb-api</artifactId>
+				<version>2.3.1</version>
+			</dependency>
+			<!--	添加spring AI Snapshot 仓库	-->
+			<!--	https://docs.springjava.cn/spring-ai/reference/getting-started.html	-->
+			<!--	添加springAI依赖	-->
+<!--			<dependency>-->
+<!--				<groupId>org.springframework.ai</groupId>-->
+<!--				<artifactId>spring-ai-openai-spring-boot-starter</artifactId>-->
+<!--			</dependency>-->
+			<!--	apache http客户端库，用于构建网络请求	-->
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>httpclient</artifactId>
+				<version>4.5.13</version>
+			</dependency>
+			<!--	方便构造带文件和其他数据的请求	-->
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>httpmime</artifactId>
+				<version>4.5.13</version>
+			</dependency>
+
+		</dependencies>
+
+
+
+	<repositories>
+		<repository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+		</plugins>
+
+	</build>
+
+</project>
